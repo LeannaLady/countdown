@@ -1,0 +1,47 @@
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select,img {margin: 0;padding: 0;}
+body{
+	position: relative;
+	width:100%;
+	height: 100%;
+}
+.countdown-wrap{
+	width:1000px;
+	margin:50px auto;
+	background:#fdfbe7;
+	padding:50px;
+}
+h3{
+	color:#666;
+	padding-top:30px;
+}
+.title{
+	padding-bottom:10px;
+}
+
+.cotdwn{
+	width: 150px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin-top:10px;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 4px;
+	border:none;
+	border:1px solid #999;
+	outline: none;
+	background-color:#ffab2f;
+	color:#fff;
+}
+.phone-num{
+	background-color:#fff;
+	color:#999;
+	text-align: left;
+	text-indent: 10px;
+	font-weight: normal;
+}
+.code{
+	width: 130px;
+	margin-left: 30px;
+}
