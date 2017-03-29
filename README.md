@@ -6,5 +6,5 @@
  4.如果发现问题，谢谢改正！如果觉得还不错，请动动小手，欢迎'star'!<br/>
  5.效果图如下<br/>
 
-		![](./images/init.jpg "初始化效果")<br/><br/>
-		![](./images/run.jpg "运行后效果")
+![](./images/init.jpg "初始化效果")<br/><br/>
+![](./images/run.jpg "运行后效果")
