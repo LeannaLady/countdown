@@ -1,6 +1,15 @@
 //倒计时总时间，根据需求定
 var cookieTimes = 60;
 $(document).ready(function() {
+
+    // 刷新页面或者页面调转回来后依然进行倒计时
+    if (typeof $.cookie('timecount') === 'undefined' || typeof $.cookie('phoneNum') === 'undefined' || parseInt($.cookie('timecount')) === 0) {
+        $('#phone-num').val('');
+    } else {
+        countDown('timecount', '#code');
+        $('#phone-num').val($.cookie('phoneNum'));
+    }
+
     // 实际开发环境中是在向后台获取验证码成功后触发
     $('#code').click(function() {
         //点击获取验证码设置cookie
@@ -12,15 +21,6 @@ $(document).ready(function() {
     });
 
 });
-
-// 刷新页面或者页面调转回来后依然进行倒计时
-if (typeof $.cookie('timecount') === 'undefined' || typeof $.cookie('phoneNum') === 'undefined' || parseInt($.cookie('timecount')) === 0) {
-    $('#phone-num').val('');
-} else {
-    countDown('timecount', '#code');
-    var phonum = $.cookie('phoneNum');
-    $('#phone-num').val('phonum');
-}
 
 
 //获取验证码方法封装
@@ -34,11 +34,14 @@ function countDown(cookieTime, target) {
     if (!isNaN(waitTime) && waitTime > 0 && diffTime <= cookieTimes) {
         waitTime = cookieTimes - diffTime;
         waitTarget.css('background', '#c7c3c3').val(waitTime + '秒后重新获取').attr('disabled', 'true');
+        //让设置的cookie值实质发生变化，不是单纯的数字减少。
+        $.cookie(cookieTime,waitTime,{path:'/'});
         var timer = setTimeout(function() {
             countDown(cookieTime, target);
         }, 1000);
     } else {
         waitTarget.css('background', '#ffab2f').val('获取验证码').removeAttr('disabled');
+        $('#phone-num').val('');
         clearTimeout(timer);
         return;
     }
